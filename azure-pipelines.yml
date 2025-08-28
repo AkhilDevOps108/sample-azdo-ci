@@ -1,0 +1,14 @@
+trigger:
+- main   # runs pipeline when changes are pushed to main branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo "🚀 Build triggered from GitHub commit!"
+  displayName: 'Run a simple script'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'index.html'
+    ArtifactName: 'drop'
